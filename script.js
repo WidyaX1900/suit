@@ -6,6 +6,8 @@ const playerReady = document.getElementById("playerReady");
 const gameResultTxt = document.getElementById("gameResult");
 const playerScoreTxt = document.getElementById("playerScore");
 const enemyScoreTxt = document.getElementById("enemyScore");
+const replayButton = document.getElementById("replayButton");
+const replayContainer = document.getElementById("replayContainer");
 
 let playerChoice = 0;
 let enemyChoice = 0;
@@ -24,12 +26,13 @@ const enemyChoiceImg = [
   "img/player2-paper.png", 
   "img/player2-rock.png", 
   "img/player2-scissor.png", 
-]; 
+];
 
 playerAtkBtnArr.forEach((playerAtkBtn, index) => {
   playerAtkBtn.addEventListener("click", (event) => {
     playerSelect.parentElement.classList.remove("hidden");
     playerReady.classList.add("hidden");
+    replayContainer.classList.remove("hidden");
 
     enemySelect.classList.remove("hidden");
     enemySelect.parentElement.classList.remove("opening");
@@ -73,3 +76,15 @@ playerAtkBtnArr.forEach((playerAtkBtn, index) => {
     gameResultTxt.innerText = gameResult.toUpperCase();
   });
 });
+
+replayButton.addEventListener("click", (event) => {
+  playerSelect.parentElement.classList.add("hidden");
+  playerReady.classList.remove("hidden");
+  replayContainer.classList.add("hidden");
+
+  enemySelect.classList.add("hidden");
+  enemySelect.parentElement.classList.add("opening");
+  enemySelect.nextElementSibling.classList.remove("hidden");
+
+  gameResultTxt.innerText = "R E A D Y";
+})
