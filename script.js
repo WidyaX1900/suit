@@ -3,9 +3,15 @@ const playerAtkBtnArr = Array.from(playerAtkBtnEl);
 const playerSelect = document.getElementById("playerSelect");
 const enemySelect = document.getElementById("enemySelect");
 const playerReady = document.getElementById("playerReady");
+const gameResultTxt = document.getElementById("gameResult");
+const playerScoreTxt = document.getElementById("playerScore");
+const enemyScoreTxt = document.getElementById("enemyScore");
 
 let playerChoice = 0;
 let enemyChoice = 0;
+let playerScore = 0;
+let enemyScore = 0;
+let gameResult = '';
 
 /* 
   ROCK, PAPER, SCISSOR NUMBER LABEL:
@@ -47,16 +53,23 @@ playerAtkBtnArr.forEach((playerAtkBtn, index) => {
     enemyChoice = Math.floor((Math.random() * 3) + 1);
 
     if(playerChoice === enemyChoice) {
-      console.log("Draw");
+      gameResult = "draw";
     } else if
     (
       enemyChoice == 1 && playerChoice == 2 ||
       enemyChoice == 2 && playerChoice == 3 ||
       enemyChoice == 3 && playerChoice == 1
     ) {
-      enemySelect.setAttribute("src", enemyChoiceImg[enemyChoice - 1]);
+      gameResult = "lose"
+      enemyScore++;
     } else {
-      console.log("You win");
+      gameResult = "win";
+      playerScore++;
     }
+    
+    enemySelect.setAttribute("src", enemyChoiceImg[enemyChoice - 1]);
+    playerScoreTxt.innerText = playerScore;
+    enemyScoreTxt.innerText = enemyScore;
+    gameResultTxt.innerText = gameResult.toUpperCase();
   });
 });
