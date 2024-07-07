@@ -14,6 +14,7 @@ body {
   display: flex;
   justify-content: space-between;
   background: rgb(33, 33, 33);
+  position: relative;
 }
 
 .player {
@@ -47,33 +48,41 @@ body {
   background: rgba(159, 53, 53, 0.594);
 }
 
-.player .player-choice {
+.player .choice {
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 30px;
-  height: 65%;
+  height: 80%;
 }
 
-.player .player-choice img {
+.player .choice img {
   width: 40%;
 }
 
-.player .player-choice .img-rock {
+.player .choice .img-rock {
   width: 35%;
 }
 
-.player .player-choice h2 {
+.ready-element {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ready-element h2 {
   font-size: 3rem;
   width: 50%;
   text-align: center;
+  margin: 0 auto;
 }
 
 .choice-buttons {
   display: flex;
   justify-content: space-around;
   width: 75%;
-  margin: 0 auto;
+  margin: 30px auto 0 auto;
 }
 
 .choice-buttons button {
@@ -94,7 +103,12 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
+}
+
+.enemy-opening-text {
+  /* opacity: 0.4; */
+  animation: openingTextAnim 3.5s linear infinite;
 }
 
 .opening {
@@ -103,9 +117,49 @@ body {
   padding-bottom: 40px;
 }
 
-.enemy-opening-text {
-  /* opacity: 0.4; */
-  animation: openingTextAnim 3.5s linear infinite;
+.opening h2 {
+  font-size: 3rem;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.score-board {
+  position: absolute;
+  top: 0;
+  left: 39%;
+  width: 23%;
+}
+
+.score-board .game-result {
+  width: 70%;
+  background: rgb(44, 14, 30);
+  border-top: 4px solid rgb(249, 249, 249);
+  border-left: 4px solid rgb(249, 249, 249);
+  border-right: 4px solid rgb(249, 249, 249);
+  text-align: center;
+  padding: 8px 0;
+  color: rgb(249, 249, 249);
+  font-size: 1.5rem;
+  margin: 0 auto;
+  border-radius: 100px 100px 0 0;
+}
+
+.score-board .score {
+  width: 100%;
+  height: 150px;
+  background: rgb(81, 53, 33);
+  border: 4px solid rgb(249, 249, 249);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(249, 249, 249);
+  font-size: 3rem;
+  border-radius: 5px;
+}
+
+.score-board .score span:nth-child(2) {
+  margin: 0 10px;
 }
 
 @keyframes openingTextAnim {

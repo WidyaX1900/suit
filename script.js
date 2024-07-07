@@ -2,10 +2,10 @@ const playerAtkBtnEl = document.getElementsByClassName("player-attack-button");
 const playerAtkBtnArr = Array.from(playerAtkBtnEl);
 const playerSelect = document.getElementById("playerSelect");
 const enemySelect = document.getElementById("enemySelect");
+const playerReady = document.getElementById("playerReady");
 
 let playerChoice = 0;
 let enemyChoice = 0;
-let result;
 
 /* 
   ROCK, PAPER, SCISSOR NUMBER LABEL:
@@ -14,15 +14,20 @@ let result;
   3 = Scissor 
 */
 
+const enemyChoiceImg = [
+  "img/player2-paper.png", 
+  "img/player2-rock.png", 
+  "img/player2-scissor.png", 
+]; 
+
 playerAtkBtnArr.forEach((playerAtkBtn, index) => {
   playerAtkBtn.addEventListener("click", (event) => {
-    playerSelect.classList.remove("hidden");
-    playerSelect.nextElementSibling.classList.add("hidden");
-    playerSelect.parentElement.classList.remove("opening");
+    playerSelect.parentElement.classList.remove("hidden");
+    playerReady.classList.add("hidden");
 
     enemySelect.classList.remove("hidden");
-    enemySelect.nextElementSibling.classList.add("hidden");
     enemySelect.parentElement.classList.remove("opening");
+    enemySelect.nextElementSibling.classList.add("hidden");
 
     let btnImage = playerAtkBtn.getElementsByTagName("img")[0];
     playerSelect.setAttribute("src", btnImage.src);
@@ -42,20 +47,16 @@ playerAtkBtnArr.forEach((playerAtkBtn, index) => {
     enemyChoice = Math.floor((Math.random() * 3) + 1);
 
     if(playerChoice === enemyChoice) {
-      result = "Draw";
+      console.log("Draw");
     } else if
     (
       enemyChoice == 1 && playerChoice == 2 ||
       enemyChoice == 2 && playerChoice == 3 ||
       enemyChoice == 3 && playerChoice == 1
     ) {
-      result = "You Lose!";
+      enemySelect.setAttribute("src", enemyChoiceImg[enemyChoice - 1]);
     } else {
-      result = "You Win";
+      console.log("You win");
     }
-
-    console.log(`Your choice: ${playerChoice}`);
-    console.log(`Enemy choice: ${enemyChoice}`);
-    console.log(result + "\n");
   });
 });
