@@ -48,11 +48,11 @@ body {
 }
 
 .player .player-choice {
-  height: 65%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 30px;
+  height: 65%;
 }
 
 .player .player-choice img {
@@ -61,6 +61,12 @@ body {
 
 .player .player-choice .img-rock {
   width: 35%;
+}
+
+.player .player-choice h2 {
+  font-size: 3rem;
+  width: 50%;
+  text-align: center;
 }
 
 .choice-buttons {
@@ -85,4 +91,33 @@ body {
 
 .choice-buttons button img {
   width: 70%;
+}
+
+.hidden {
+  display: none;
+}
+
+.opening {
+  padding-top: 130px !important;
+  height: 50% !important;
+  padding-bottom: 40px;
+}
+
+.enemy-opening-text {
+  /* opacity: 0.4; */
+  animation: openingTextAnim 3.5s linear infinite;
+}
+
+@keyframes openingTextAnim {
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
 }

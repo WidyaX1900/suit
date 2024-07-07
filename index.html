@@ -9,8 +9,14 @@
   <body>
     <div class="player one">
       <h1>You</h1>
-      <div class="player-choice">
-        <img src="img/player1-paper.png" alt="player-choice-img" />
+      <div class="player-choice opening">
+        <img
+          id="playerSelect"
+          src="img/player1-paper.png"
+          alt="player-choice-img"
+          class="hidden"
+        />
+        <h2>Make Your Choice!</h2>
       </div>
       <div class="choice-buttons">
         <button type="button" class="player-attack-button">
@@ -26,8 +32,14 @@
     </div>
     <div class="player two">
       <h1>Opponent</h1>
-      <div class="player-choice">
-        <img src="img/player2-paper.png" alt="player-choice-img" />
+      <div class="player-choice opening">
+        <img
+          id="enemySelect"
+          src="img/player2-paper.png"
+          alt="player-choice-img"
+          class="hidden"
+        />
+        <h2 class="enemy-opening-text">Opponent is waiting...</h2>
       </div>
     </div>
 
